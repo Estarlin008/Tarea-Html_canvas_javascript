@@ -1,28 +1,42 @@
-const canvas = document.getElementById('miCanvas');
+window.onload = function(){
+
+const canvas = document.getElementById('fondo');
 const ctx = canvas.getContext('2d');
 
-let x = 20;
-let animando = false;
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
 
-function dibujar(){
+let circles = [];
+
+for (let i = 0; i < 30; i++){
+    circles.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        radius: Math.random() * 5 + 2,
+        dx: Math.random() * 1 - 0.5,
+        dy: Math.random() * 1 - 0.5
+    });
+}
+
+function animate(){
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    ctx.fillStyle = 'green';
-    ctx.fillRect(400,80,60,80);
+    circles.forEach(circle => {
+        ctx.beginPath();
+        ctx.arc(circle.x, circle.y, circle.radius, 0, Math.PI * 2);
+        ctx.fillStyle = "rgba(46, 125, 50, 0.4)";
+        ctx.fill();
 
-    ctx.fillStyle = 'blue';
-    ctx.arc(x,120,20,0,Math.PI*2);
-    ctx.fill();
+        circle.x += circle.dx;
+        circle.y += circle.dy;
 
-    if (animando && x <380){
-        x += 2;
-        requestAnimationFrame(dibujar);
-    }
+        if(circle.x < 0 || circle.x > canvas.width) circle.dx *= -1;
+        if(circle.y < 0 || circle.y > canvas.height) circle.dy *= -1;
+    });
+
+    requestAnimationFrame(animate);
 }
 
-function inicial(){
-    animando = true;
-    dibujar();
-}
+animate();
 
-dibujar();
+};
