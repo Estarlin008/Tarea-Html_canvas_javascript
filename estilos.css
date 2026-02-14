@@ -5,7 +5,7 @@ body{
 }
 
 section{
-    background: while;
+    background: white;
     margin: 20px auto;
     padding: 20px;
     border-radius: 10px;
@@ -23,9 +23,9 @@ canvas{
 }
 
 button{
-    padding: 8xp 15px;
+    padding: 8px 15px;
     background-color: #2e7d32;
-    color: while;
+    color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;

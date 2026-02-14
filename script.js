@@ -1,4 +1,4 @@
-const canvas = document.getElementById('canvas');
+const canvas = document.getElementById('miCanvas');
 const ctx = canvas.getContext('2d');
 
 let x = 20;
@@ -7,7 +7,7 @@ let animando = false;
 function dibujar(){
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    ctx.fillstyle = 'green';
+    ctx.fillStyle = 'green';
     ctx.fillRect(400,80,60,80);
 
     ctx.fillStyle = 'blue';
