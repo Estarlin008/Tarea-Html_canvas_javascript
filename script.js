@@ -8,7 +8,7 @@ canvas.height = window.innerHeight;
 
 let circles = [];
 
-for (let i = 0; i < 30; i++){
+for (let i = 0; i < 50; i++){
     circles.push({
         x: Math.random() * canvas.width,
         y: Math.random() * canvas.height,
